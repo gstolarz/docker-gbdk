@@ -83,7 +83,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/aslex.c gbdk/sdcc/as/mcs51/aslex.c
   *		char	get()
   *		VOID	getid(id,c)
 - *		int	getline()
-+ *		_IO_ssize_t	getline()
++ *		ssize_t	getline()
   *		int	getmap()
   *		char	getnb()
   *		VOID	getst()
@@ -92,7 +92,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/aslex.c gbdk/sdcc/as/mcs51/aslex.c
  }
  
 -/*)Function	int	getline()
-+/*)Function	_IO_ssize_t	getline()
++/*)Function	ssize_t	getline()
   *
   *	The function getline() reads a line of assembler-source text
   *	from an assembly source text file or an include file.
@@ -102,7 +102,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/aslex.c gbdk/sdcc/as/mcs51/aslex.c
  
 -int
 -getline()
-+_IO_ssize_t
++ssize_t
 +getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream)
  {
  loop:	if (incfil >= 0) {
@@ -115,7 +115,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/aslink.h gbdk/sdcc/as/mcs51/aslink.h
  extern	VOID		getid();
  extern	VOID		getSid();
 -extern	int		getline();
-+extern	_IO_ssize_t	getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
++extern	ssize_t		getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
  extern	int		getmap();
  extern	char		getnb();
  extern	int		more();
@@ -127,7 +127,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/asmain.c gbdk/sdcc/as/mcs51/asmain.c
   *		VOID	err()		assubr.c
   *		int	fprintf()	c-library
 - *		int	getline()	aslex.c
-+ *		_IO_ssize_t	getline()	aslex.c
++ *		ssize_t	getline()	aslex.c
   *		VOID	list()		aslist.c
   *		VOID	lstsym()	aslist.c
   *		VOID	minit()		___mch.c
@@ -148,7 +148,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/asm.h gbdk/sdcc/as/mcs51/asm.h
  extern	char		get();
  extern	VOID		getid();
 -extern	int		getline();
-+extern	_IO_ssize_t	getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
++extern	ssize_t		getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
  extern	int		getmap();
  extern	char		getnb();
  extern	VOID		getst();
@@ -160,7 +160,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/lklex.c gbdk/sdcc/as/mcs51/lklex.c
   *		VOID	getid()
   *		VOID	getSid()
 - *		int	getline()
-+ *		_IO_ssize_t	getline()
++ *		ssize_t	getline()
   *		int	getmap()
   *		char	getnb()
   *		int	more()
@@ -169,7 +169,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/lklex.c gbdk/sdcc/as/mcs51/lklex.c
  }
  
 -/*)Function	int	getline()
-+/*)Function	_IO_ssize_t	getline()
++/*)Function	ssize_t	getline()
   *
   *	The function getline() reads a line of input text from a
   *	.rel source text file, a .lnk command file or from stdin.
@@ -179,7 +179,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/lklex.c gbdk/sdcc/as/mcs51/lklex.c
  
 -int
 -getline()
-+_IO_ssize_t
++ssize_t
 +getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream)
  {
  	register int ftype;
@@ -192,7 +192,7 @@ diff -ur gbdk-orig/sdcc/as/mcs51/lkmain.c gbdk/sdcc/as/mcs51/lkmain.c
   *		int	fclose()	c_library
   *		int	fprintf()	c_library
 - *		int	getline()	lklex.c
-+ *		_IO_ssize_t	getline()	lklex.c
++ *		ssize_t	getline()	lklex.c
   *		VOID	library()	lklibr.c
   *		VOID	link_main()	lkmain.c
   *		VOID	lkexit()	lkmain.c
@@ -222,7 +222,7 @@ diff -ur gbdk-orig/sdcc/as/z80/aslex.c gbdk/sdcc/as/z80/aslex.c
   *		char	get()
   *		VOID	getid(id,c)
 - *		int	getline()
-+ *		_IO_ssize_t	getline()
++ *		ssize_t	getline()
   *		int	getmap()
   *		char	getnb()
   *		VOID	getst()
@@ -231,7 +231,7 @@ diff -ur gbdk-orig/sdcc/as/z80/aslex.c gbdk/sdcc/as/z80/aslex.c
  }
  
 -/*)Function	int	getline()
-+/*)Function	_IO_ssize_t	getline()
++/*)Function	ssize_t	getline()
   *
   *	The function getline() reads a line of assembler-source text
   *	from an assembly source text file or an include file.
@@ -241,7 +241,7 @@ diff -ur gbdk-orig/sdcc/as/z80/aslex.c gbdk/sdcc/as/z80/aslex.c
  
 -int
 -getline()
-+_IO_ssize_t
++ssize_t
 +getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream)
  {
  register int i;
@@ -254,7 +254,7 @@ diff -ur gbdk-orig/sdcc/as/z80/asmain.c gbdk/sdcc/as/z80/asmain.c
   *		VOID	err()		assubr.c
   *		int	fprintf()	c-library
 - *		int	getline()	aslex.c
-+ *		_IO_ssize_t	getline()	aslex.c
++ *		ssize_t	getline()	aslex.c
   *		VOID	list()		aslist.c
   *		VOID	lstsym()	aslist.c
   *		VOID	minit()		___mch.c
@@ -275,7 +275,7 @@ diff -ur gbdk-orig/sdcc/as/z80/asm.h gbdk/sdcc/as/z80/asm.h
  extern	char		get();
  extern	VOID		getid();
 -extern	int		getline();
-+extern	_IO_ssize_t	getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
++extern	ssize_t		getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
  extern	int		getmap();
  extern	char		getnb();
  extern	VOID		getst();
@@ -299,7 +299,7 @@ diff -ur gbdk-orig/sdcc/link/z80/aslink.h gbdk/sdcc/link/z80/aslink.h
  extern	VOID		getfid();
  extern	VOID		getid();
 -extern	int		getline();
-+extern	_IO_ssize_t	getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
++extern	ssize_t		getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream);
  extern	int		getmap();
  extern	char		getnb();
  extern	int		more();
@@ -311,7 +311,7 @@ diff -ur gbdk-orig/sdcc/link/z80/lklex.c gbdk/sdcc/link/z80/lklex.c
   *		VOID	getfid()
   *		VOID	getid()
 - *		int	getline()
-+ *		_IO_ssize_t	getline()
++ *		ssize_t	getline()
   *		int	getmap()
   *		char	getnb()
   *		int	more()
@@ -320,7 +320,7 @@ diff -ur gbdk-orig/sdcc/link/z80/lklex.c gbdk/sdcc/link/z80/lklex.c
  }
  
 -/*)Function	int	getline()
-+/*)Function	_IO_ssize_t	getline()
++/*)Function	ssize_t	getline()
   *
   *	The function getline() reads a line of input text from a
   *	.rel source text file, a .lnk command file or from stdin.
@@ -330,7 +330,7 @@ diff -ur gbdk-orig/sdcc/link/z80/lklex.c gbdk/sdcc/link/z80/lklex.c
  
 -int
 -getline()
-+_IO_ssize_t
++ssize_t
 +getline(char **__restrict __lineptr, size_t *__restrict __n, FILE *__restrict __stream)
  {
  	register int i, ftype;
@@ -343,7 +343,7 @@ diff -ur gbdk-orig/sdcc/link/z80/lkmain.c gbdk/sdcc/link/z80/lkmain.c
   *		int	fclose()	c_library
   *		int	fprintf()	c_library
 - *		int	getline()	lklex.c
-+ *		_IO_ssize_t	getline()	lklex.c
++ *		ssize_t	getline()	lklex.c
   *		VOID	library()	lklibr.c
   *		VOID	link()		lkmain.c
   *		VOID	lkexit()	lkmain.c

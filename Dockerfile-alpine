@@ -3,7 +3,7 @@ FROM alpine AS build
 RUN apk add --update --no-cache bison flex g++ make musl-dev patch wget
 
 WORKDIR /usr/src
-COPY gbdk-alpine.patch /usr/src
+COPY gbdk.patch /usr/src
 
 RUN wget ftp://ftp.gnu.org/pub/gnu/sed/sed-4.5.tar.xz \
   && wget https://sourceforge.net/projects/gbdk/files/gbdk/2.96/gbdk-2.96a.tar.gz \
@@ -20,10 +20,10 @@ RUN wget ftp://ftp.gnu.org/pub/gnu/sed/sed-4.5.tar.xz \
   && cd ../.. \
   && find gbdk/gbdk-lib/examples -type f -exec chmod -x {} \; \
   && find gbdk/gbdk-lib/include -type f -exec chmod -x {} \; \
-  && patch -p0 < gbdk-alpine.patch \
+  && patch -p0 < gbdk.patch \
   && cd gbdk \
   && make install \
-  && find /opt/gbdk -type f -name *.asm -o -name *.lst -o -name *.sym -exec rm {} \;
+  && find /opt/gbdk -type f -name \*.asm -o -name \*.lst -o -name \*.sym -exec rm {} \;
 
 FROM alpine
 
