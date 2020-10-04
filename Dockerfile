@@ -5,7 +5,6 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src
-
 COPY gbdk.patch /usr/src
 
 RUN wget https://sourceforge.net/projects/gbdk/files/gbdk/2.96/gbdk-2.96a.tar.gz \
@@ -26,7 +25,5 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /opt/gbdk /opt/gbdk
-
 ENV PATH /opt/gbdk/bin:$PATH
-
 WORKDIR /workdir
