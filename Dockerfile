@@ -5,7 +5,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/src
-COPY gbdk.patch /usr/src
+COPY gbdk.patch .
 
 RUN wget ftp://ftp.gnu.org/pub/gnu/sed/sed-4.5.tar.xz \
   && wget https://sourceforge.net/projects/gbdk/files/gbdk/2.96/gbdk-2.96a.tar.gz \
